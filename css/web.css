@@ -1,0 +1,262 @@
+/*----------------------------------------------------------------------------------------
+	PAGE ELEMENTS
+----------------------------------------------------------------------------------------*/
+
+
+
+/*****************************/
+/* Polices */
+/*****************************/
+
+@font-face {
+font-family: 'Indie Flower Regular';
+font-weight: normal;
+src:
+    local('Indie Flower Regular'),
+    local('IndieFlower'),
+    url('../fonts/IndieFlower.ttf') format('truetype');
+}
+
+@font-face {
+font-family: 'Loved by the King Regular';
+font-weight: normal;
+src:
+    local('Loved by the King Regular'),
+    local('Loved by the King'),
+    url('../fonts/LovedbytheKing.ttf') format('truetype');
+}
+
+@font-face {
+font-family: 'Reenie Beanie Regular';
+font-weight: normal;
+src:
+    local('Reenie Beanie Regular'),
+    local('Reenie Beanie'),
+    url('../fonts/ReenieBeanie.ttf') format('truetype');
+}
+
+
+
+/*****************************/
+/* General */
+/*****************************/
+
+/* Reset CSS */
+* {
+	margin: 0px;
+	padding: 0px;
+	}
+
+
+
+/*****************************/
+/* Styles */
+/*****************************/
+
+* {
+	font-family: "Indie Flower Regular", sans-serif;
+	}
+
+
+
+body {
+	background-color: #AAAAAA;
+	/* background-image: url("../images/blackboard.jpg"); */
+	background-size: 100vw 100vh;
+	}
+
+
+
+section {
+	margin-top: 30px;
+	padding: 20px;
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-width: 3px;
+	}
+
+
+
+article {
+	margin: 0px 10px 10px 10px;
+	padding: 30px 150px 30px 150px;
+	background-image: url("../images/opacity1.png");
+	}
+
+.affichage
+{
+	display:block;
+	position: absolute;
+	background-color:white;
+	height:50vh;
+	width:50vw;
+	top:25vh;
+	left:25vw;
+}
+
+.bouton
+{
+	display:inline-block;
+	position: absolute;
+	background-color:grey;
+	width:15vh;
+	height:15vh;
+}
+
+/* Affichage touches déplacement */
+#up
+{
+	left:20vh;
+	bottom:35vh;
+}
+#down
+{
+	left:20vh;
+	bottom:5vh;
+}
+#left
+{
+	left:5vh;
+	bottom:20vh;
+}
+#right
+{
+	left:35vh;
+	bottom:20vh;
+}
+/* Affichage touches Action */
+#bA
+{
+	right:20vh;
+	bottom:35vh;
+}
+#bB
+{
+	right:5vh;
+	bottom:20vh;
+}
+#bC
+{
+	right:20vh;
+	bottom:5vh;
+}
+#bD
+{
+	right:35vh;
+	bottom:20vh;
+}
+#opt
+{
+	right:0;
+	top:0;
+}
+
+
+/* Titres */
+
+h2 {
+	color: #FFFFFF;
+	font-size: 40px;
+	text-align: center;
+	}
+
+
+
+h3 {
+	margin: 10px 0 50px 0;
+	color: #FFFFFF;
+	font-size: 20px;
+	text-align: center;
+	}
+
+
+h4 {
+	margin: 10px 0 10px 0;
+	padding: 20px;
+	border-style: solid;
+	border-color: #0000DD;
+	border-width: 3px;
+	color: blue;
+	font-size: 20px;
+	}
+
+
+
+
+
+/* Autres balises */
+
+input,button {
+	display: block;
+	margin: 20px 0 20px auto;
+	padding: 10px;
+	border-style: solid;
+	border-color: blue;
+	border-width: 3px;
+	border-radius: 15px;
+	background-color: transparent;
+	color: blue;
+	font-size: 20px;
+	}
+input[type='text'],input[type='password'] {
+	width: 400px;
+	color: #FFFFFF;
+	font-family: "Loved by the King Regular", sans-serif;
+	font-size: 30px;
+	}
+
+
+
+.error {
+	padding: 0px 30px 0px 30px;
+	font-size: 0.8em;
+	font-style: italic;
+	color: red;
+	}
+
+
+
+p {
+	margin: 2px;
+	font-size: 20px;
+	}
+
+
+
+
+
+	/* Styles */
+
+.statique {
+	border-color: blue;
+	color: blue;
+	}
+
+.dynamique {
+	border-color: red;
+	color: red;
+	}
+
+.blabla {
+	font-style: italic;
+	}
+
+.oui {
+	background-color: rgba(0, 255, 0, 0.1);
+}
+.non {
+	background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* //palette */
+.color-1 {color: #90aa41;}
+.color-2 {color: #5caa41;}
+.color-3 {color: #41aa5b;}
+.color-4 {color: #41aa8f;}
+.color-5 {color: #4190aa;}
+.color-6 {color: #415baa;}
+
+.color-1 {color: #90aa41;}
+.color-2 {color: #41aa8f;}
+.color-3 {color: #5b41aa;}
+.color-4 {color: #aa415c;}
