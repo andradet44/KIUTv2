@@ -4,24 +4,25 @@
 	<!-- En tête -->
 	<head>
 		<!-- Fichiers CSS -->
-		<link rel='stylesheet' type='text/css' href='./css/web.css' media='screen' />
+		<link rel='stylesheet' type='text/css' href='./css/manette.css' media='screen' />
 
 		<!-- Fichiers Javascripts -->
 		<script type='text/javascript' src='./js/jquery-2.0.3.min.js'></script>
 		<script type='text/javascript' src='./js/web.js'></script>
-		<script type='text/javascript' src='./js/ajax.js'></script>
+		<!-- Javascript pour envoyer les actions sur les touches-->
+		<script type='text/javascript' src='./js/envoyer_touche.js'></script>
 
 		<!-- Encodage UTF8 pour les accents -->
 		<meta charset='UTF-8'>
 
 		<!-- Icône de l'onglet -->
-		<link rel='icon' type='image/png' href='./images/favicon.png' />
+		<link rel='icon' type='image/png' href='./includes/icon/favicon.png' />
 
 		<!-- Titre de l'onglet -->
-		<title></title>
+		<title>Manette KIUTv2</title>
 	</head>
-<meta name="viewport" 
-  content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<!-- Pour permettre à l'utilisateur de pas zoomer -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
 
 	<!-- Corps du document -->
@@ -34,11 +35,11 @@
 			Nom utilisateur
 		</h1>
 		<h2>
-			Instructions jeu ici
+			Titre jeu ici
 		</h2>
-		<canvas class='affichage' id='canvas'>
-			Votre navigateur est pourri, et ne supporte pas le Canvas, désolé.
-		</canvas>
+		<div class='affichage' id='canvas'>
+			Instructions ici
+		</div>
 		<!-- Touches déplacement -->
 		<div class='bouton' id='up'>
 			up
@@ -52,17 +53,18 @@
 		<div class='bouton' id='right'>
 			right
 		</div>
+		
 		<!-- Touches Action -->
-		<div class='bouton' id='bA'>
+		<div class='bouton' id='bouton_A'>
 			A
 		</div>
-		<div class='bouton' id='bB'>
+		<div class='bouton' id='bouton_B'>
 			B
 		</div>
-		<div class='bouton' id='bC'>
+		<div class='bouton' id='bouton_C'>
 			C
 		</div>
-		<div class='bouton' id='bD'>
+		<div class='bouton' id='bouton_D'>
 			D
 		</div>
 		<div class='bouton' id='opt'>

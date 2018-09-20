@@ -10,21 +10,22 @@ $(document).ready(function(){
 	/*************************************************/
 
 	
-	// Requête AJAX à intervales réguliers (1sec.)
-	setInterval(envoi, 100);
+	// Requête AJAX à intervales réguliers (1000 = 1sec.) 
+	setInterval(envoi, 1000);
 
 	function envoi() {
 		// Remplissage objet JSON
+		//vide car aucune info à envoyer, juste recevoir
 		var objetJSON = {};
 
 		// Serialise objet JSON
 		var donneesClient = JSON.stringify(objetJSON);
 
 		// Envoyer donnees JSON
-		jQuery.ajax({type: "POST", url: "page1.php", dataType: "JSON", data: 'donneesClient=' + donneesClient,
+		jQuery.ajax({type: "POST", url: "ServeurAjaxRecupTouches.php", dataType: "JSON", data: 'donneesClient=' + donneesClient,
 			success: function(donneesServeur) {
 				// Traiter reponse serveur
-				debug(donneesServeur);
+				action(donneesServeur);
 			}
 		});
 	}
@@ -34,8 +35,9 @@ $(document).ready(function(){
 	/**************** RECEPTION AJAX *****************/
 	/*************************************************/
 
-	// AJAX 1
-	function debug(donneesServeur) {
+	// Interpretation des touches ici
+	// faire en sorte que le java lance des fonctions dans un autre js
+	function action(donneesServeur) {
 		// Tableau de données
 		if (defined(donneesServeur)) {
 			for (val of donneesServeur)

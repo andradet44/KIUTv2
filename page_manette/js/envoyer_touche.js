@@ -5,25 +5,38 @@ $(document).ready(function(){
 	/*************************************************/
 
 	// Activations des event par touches (tactile)
+	//trouve la touche up
 	var tch_up = jQuery("#up")[0];
+	//start et move lance action = 1
 	tch_up.addEventListener("touchstart", function(){tch('up','1')}, false);
 	tch_up.addEventListener("touchmove", function(){tch('up','1')}, false);
+	//le reste désactive automatiquement
 	tch_up.addEventListener("touchend", function(){tch('up','0')}, false);
 	tch_up.addEventListener("touchcancel", function(){tch('up','0')}, false);
 	tch_up.addEventListener("touchleave", function(){tch('up','0')}, false);
+	//trouve la touche right
+	var tch_right = jQuery("#right")[0];
+	tch_right.addEventListener("touchstart", function(){tch('right','1')}, false);
+	tch_right.addEventListener("touchmove", function(){tch('right','1')}, false);
+	tch_right.addEventListener("touchend", function(){tch('right','0')}, false);
+	tch_right.addEventListener("touchcancel", function(){tch('right','0')}, false);
+	tch_right.addEventListener("touchleave", function(){tch('right','0')}, false);
+	//trouve la touche down
+	var tch_down = jQuery("#down")[0];
+	tch_down.addEventListener("touchstart", function(){tch('down','1')}, false);
+	tch_down.addEventListener("touchmove", function(){tch('down','1')}, false);
+	tch_down.addEventListener("touchend", function(){tch('down','0')}, false);
+	tch_down.addEventListener("touchcancel", function(){tch('down','0')}, false);
+	tch_down.addEventListener("touchleave", function(){tch('down','0')}, false);
+	//trouve la touche left
+	var tch_left = jQuery("#left")[0];
+	tch_left.addEventListener("touchstart", function(){tch('left','1')}, false);
+	tch_left.addEventListener("touchmove", function(){tch('left','1')}, false);
+	tch_left.addEventListener("touchend", function(){tch('left','0')}, false);
+	tch_left.addEventListener("touchcancel", function(){tch('left','0')}, false);
+	tch_left.addEventListener("touchleave", function(){tch('left','0')}, false);
+	
 
-  function up_start(evt) {
-  evt.preventDefault();
-  var ctx = el.getContext("2d");
-  var touches = evt.changedTouches;
-        
-  for (var i=0; i<touches.length; i++) {
-    // ongoingTouches.push(touches[i]);
-    // var color = colorForTouch(touches[i]);
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(touches[i].pageX-50, touches[i].pageY, 4, 4);
-  }
-}
 
 	/*************************************************/
 	/****************** ENVOI AJAX *******************/
@@ -31,7 +44,8 @@ $(document).ready(function(){
 
 
 
-	function tch(touch, action) {
+	function tch(touch, action)
+	{
 		// Remplissage objet JSON
 		var manette_id = jQuery(".manette_id").val();
 		var objetJSON = {'manette_id': '1', 'action' : action, 'touch' : touch};
@@ -40,23 +54,19 @@ $(document).ready(function(){
 		var donneesClient = JSON.stringify(objetJSON);
 
 		// Envoyer donnees JSON
-		jQuery.ajax({type: "POST", url: "serveurAJAX1.php", dataType: "JSON", data: 'donneesClient=' + donneesClient,
+		jQuery.ajax({type: "POST", url: "ServeurAjaxTouches.php", dataType: "JSON", data: 'donneesClient=' + donneesClient,
 			success: function(donneesServeur) {
-				// Traiter reponse serveur
+				// debug si ça marche et si seulement c'est nécessaire
 				debug(donneesServeur);
 			}
 		});
 	}
 
-
-
-
-
 	/*************************************************/
 	/**************** RECEPTION AJAX *****************/
 	/*************************************************/
 
-	// AJAX 1
+	// Si on nécessite un debug
 	function debug(donneesServeur) {
 		// Tableau de données
 		if (defined(donneesServeur)) {
@@ -67,9 +77,9 @@ $(document).ready(function(){
 				{
 					if (val.actionOK == "1")
 					{
-						jQuery('h2').text("Appuie sur Up");
+						//le bouton est appuyé
 					}else{
-						jQuery('h2').text("Vous avez laché Up");
+						//le bouton n'est pas appuyé
 					}
 				}
 			}

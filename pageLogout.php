@@ -15,6 +15,6 @@
 
 		// Fermeture session, retour page accueil
 		if (session_destroy()) {
-			header("Location: login.html");
+			header("Location: index.php");
 		}
 ?>
