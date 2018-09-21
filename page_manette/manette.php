@@ -27,7 +27,6 @@
 
 	<!-- Corps du document -->
 	<body>
-		<!-- Affichage général et canvas -->
 		<h1 class='id_manette' style='display:none'>
 			001
 		</h1>
@@ -37,38 +36,30 @@
 		<h2>
 			Titre jeu ici
 		</h2>
-		<div class='affichage' id='canvas'>
+	<div class='manette'>
+		<!-- Affichage général 1 -->	
+		<div class='affichage' id='aff_1' style='background-image: url("./includes/icon/btn_typ2_jaune.png");'>
+			Instructions ici
+		</div>
+		<!-- Affichage général 2 -->	
+		<div class='affichage' id='aff_2' style='background-image: url("./includes/icon/btn_typ2_rouge.png");'>
 			Instructions ici
 		</div>
 		<!-- Touches déplacement -->
-		<div class='bouton' id='up'>
-			up
-		</div>
-		<div class='bouton' id='down'>
-			down
-		</div>
-		<div class='bouton' id='left'>
-			left
-		</div>
-		<div class='bouton' id='right'>
-			right
-		</div>
-		
+		<div class='bouton' id='up' style='background-image: url("./includes/icon/btn_typ1_up.png");'></div>
+		<div class='bouton' id='down' style='background-image: url("./includes/icon/btn_typ1_down.png");'></div>
+		<div class='bouton' id='left' style='background-image: url("./includes/icon/btn_typ1_left.png");'></div>
+		<div class='bouton' id='right' style='background-image: url("./includes/icon/btn_typ1_right.png");'></div>
 		<!-- Touches Action -->
-		<div class='bouton' id='bouton_A'>
-			A
-		</div>
-		<div class='bouton' id='bouton_B'>
-			B
-		</div>
-		<div class='bouton' id='bouton_C'>
-			C
-		</div>
-		<div class='bouton' id='bouton_D'>
-			D
-		</div>
-		<div class='bouton' id='opt'>
-			Options
-		</div>
+		<div class='bouton' id='bouton_A' style='background-image: url("./includes/icon/btn_typ4_vert.png");'></div>
+		<div class='bouton' id='bouton_B' style='background-image: url("./includes/icon/btn_typ4_rouge.png");'></div>
+		<div class='bouton' id='bouton_C' style='background-image: url("./includes/icon/btn_typ4_bleu.png");'></div>
+		<div class='bouton' id='bouton_D' style='background-image: url("./includes/icon/btn_typ4_jaune.png");'></div>
+		<!-- Options -->
+		<div class='bouton' id='opt' style='background-image: url("./includes/icon/btn_typ4_options.png");'></div>
+	</div>
+	<section class='ecran'>
+		<h1>Veuillez pivoter votre écran pour accéder à l'interface</h1>
+	</section>
 	</body>
 </html>

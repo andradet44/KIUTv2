@@ -42,10 +42,10 @@ src:
 /*****************************/
 
 /* Reset CSS */
-* {
+*{
 	margin: 0px;
 	padding: 0px;
-	}
+}
 
 
 
@@ -53,27 +53,33 @@ src:
 /* Styles */
 /*****************************/
 
-* {
+*{
 	font-family: "Indie Flower Regular", sans-serif;
-	}
+}
 
 
 
-body {
+body{
 	background-color: #AAAAAA;
-	/* background-image: url("../images/blackboard.jpg"); */
 	background-size: 100vw 100vh;
-	}
+	background-image: url("../includes/icon/logo_ps1.png");
+	background-origin: border-box;
+	background-clip: padding-box;
+    background-repeat: repeat;
+    background-size: 20vh 20vh;
+    background-position: center;
+}
 
 
 
-section {
+section
+{
 	margin-top: 30px;
-	padding: 20px;
 	border-style: solid;
 	border-color: #FFFFFF;
 	border-width: 3px;
-	}
+	text-align:center;
+}
 
 
 
@@ -81,96 +87,132 @@ article {
 	margin: 0px 10px 10px 10px;
 	padding: 30px 150px 30px 150px;
 	background-image: url("../images/opacity1.png");
-	}
+}
 
 .affichage
 {
 	display:block;
 	position: absolute;
-	background-color:white;
-	height:50vh;
-	width:50vw;
-	top:25vh;
-	left:25vw;
+	height:40vh;
+	width:40vw;
+	top:30vh;
+	left:30vw;
+	/* Arriere plan */
+	background-color: rgba(0, 0, 0, 0.5);
+	background-origin: border-box;
+	background-clip: padding-box;
+    background-repeat: no-repeat;
+    background-size: 40vh 40vh;
+    background-position: center;
+	border-style: dotted;
+    border-width: 2px;
+	/* Texte */
+	text-align:center;
+	color:white;
+}
+
+.ecran
+{
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .bouton
 {
 	display:inline-block;
 	position: absolute;
-	background-color:grey;
+	/* background-color:grey; */
 	width:15vh;
 	height:15vh;
+	background-origin: border-box;
+	background-clip: padding-box;
+    background-repeat: no-repeat;
+    background-size: 15vh auto;
 }
+/* affichage 2 pour les 2 écrans qui basculent */
+
+#aff_2
+{
+	visibility:hidden;
+}
+
 
 /* Affichage touches déplacement */
 #up
 {
 	left:20vh;
 	bottom:35vh;
+	opacity:0.7;
 }
 #down
 {
 	left:20vh;
 	bottom:5vh;
+	opacity:0.7;
 }
 #left
 {
 	left:5vh;
 	bottom:20vh;
+	opacity:0.7;
 }
 #right
 {
 	left:35vh;
 	bottom:20vh;
+	opacity:0.7;
 }
 /* Affichage touches Action */
 #bouton_A
 {
 	right:20vh;
 	bottom:35vh;
+	opacity:0.7;
 }
 #bouton_B
 {
 	right:5vh;
 	bottom:20vh;
+	opacity:0.7;
 }
 #bouton_C
 {
 	right:20vh;
 	bottom:5vh;
+	opacity:0.7;
 }
 #bouton_D
 {
 	right:35vh;
 	bottom:20vh;
+	opacity:0.7;
 }
 #opt
 {
 	right:0;
 	top:0;
+	opacity:0.7;
 }
 
 
 /* Titres */
-
-h2 {
-	color: #FFFFFF;
-	font-size: 40px;
-	text-align: center;
-	}
-
-
-
-h3 {
-	margin: 10px 0 50px 0;
+h1
+{
+	margin: 10px 0 10px 0;
 	color: #FFFFFF;
 	font-size: 20px;
 	text-align: center;
-	}
+}
+
+h2
+{
+	color: #FFFFFF;
+	font-size: 40px;
+	text-align: center;
+}
 
 
-h4 {
+h4
+{
 	margin: 10px 0 10px 0;
 	padding: 20px;
 	border-style: solid;
@@ -178,7 +220,7 @@ h4 {
 	border-width: 3px;
 	color: blue;
 	font-size: 20px;
-	}
+}
 
 
 
@@ -205,17 +247,6 @@ input[type='text'],input[type='password'] {
 	font-size: 30px;
 	}
 
-
-
-.error {
-	padding: 0px 30px 0px 30px;
-	font-size: 0.8em;
-	font-style: italic;
-	color: red;
-	}
-
-
-
 p {
 	margin: 2px;
 	font-size: 20px;
@@ -223,30 +254,30 @@ p {
 
 
 
-
-
-	/* Styles */
-
-.statique {
-	border-color: blue;
-	color: blue;
+@media (max-width: 100vh) 
+{
+	.ecran 
+	{
+		visibility: visible;
 	}
-
-.dynamique {
-	border-color: red;
-	color: red;
+	.manette 
+	{
+		visibility: hidden;
 	}
-
-.blabla {
-	font-style: italic;
-	}
-
-.oui {
-	background-color: rgba(0, 255, 0, 0.1);
 }
-.non {
-	background-color: rgba(255, 0, 0, 0.1);
+ @media (min-width: 100vh)  
+{
+	.ecran 
+	{
+		visibility: hidden;
+	}
+	.manette 
+	{
+		visibility: visible;
+	}
 }
+
+
 
 /* //palette */
 .color-1 {color: #90aa41;}

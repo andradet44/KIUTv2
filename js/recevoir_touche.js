@@ -11,9 +11,9 @@ $(document).ready(function(){
 
 	
 	// Requête AJAX à intervales réguliers (1000 = 1sec.) 
-	setInterval(envoi, 1000);
+	setInterval(recup, 1000);
 
-	function envoi() {
+	function recup() {
 		// Remplissage objet JSON
 		//vide car aucune info à envoyer, juste recevoir
 		var objetJSON = {};

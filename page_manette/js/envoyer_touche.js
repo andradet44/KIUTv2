@@ -67,6 +67,8 @@ $(document).ready(function(){
 	/*************************************************/
 
 	// Si on nécessite un debug
+	// dans ce cas on utilisera le debug pour changer l'opcaité des boutons
+	//les boutons sont foncés si l'on appuie sinon il reste transparent
 	function debug(donneesServeur) {
 		// Tableau de données
 		if (defined(donneesServeur)) {
@@ -78,8 +80,40 @@ $(document).ready(function(){
 					if (val.actionOK == "1")
 					{
 						//le bouton est appuyé
+						jQuery("#up").css("opacity", "1");
 					}else{
 						//le bouton n'est pas appuyé
+						jQuery("#up").css("opacity", "0.7");
+					}
+				} else 	if (val.touchOK == "right")
+				{
+					if (val.actionOK == "1")
+					{
+						//le bouton est appuyé
+						jQuery("#right").css("opacity", "1");
+					}else{
+						//le bouton n'est pas appuyé
+						jQuery("#right").css("opacity", "0.7");
+					}
+				} else 	if (val.touchOK == "left")
+				{
+					if (val.actionOK == "1")
+					{
+						//le bouton est appuyé
+						jQuery("#left").css("opacity", "1");
+					}else{
+						//le bouton n'est pas appuyé
+						jQuery("#left").css("opacity", "0.7");
+					}
+				} else 	if (val.touchOK == "down")
+				{
+					if (val.actionOK == "1")
+					{
+						//le bouton est appuyé
+						jQuery("#down").css("opacity", "1");
+					}else{
+						//le bouton n'est pas appuyé
+						jQuery("#down").css("opacity", "0.7");
 					}
 				}
 			}

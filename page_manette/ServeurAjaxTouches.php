@@ -19,28 +19,6 @@
 
 		// Ouverture connexion
 		$mysqli = new mysqli(DB_HOST, DB_LOGIN, DB_PWD, DB_NAME);
-
-	//////////////////////////////////////////////////////////////////////////////////////
-	//select
-		//selectionne dans la bdd les touches sur lesquels la manette appuie
-		$select_tch_bdd = "SELECT * FROM `tbl_touche` where `id_touche_manette` = '$manette_id';";
-		$resultat_tch = $mysqli->query($select_tch_bdd);
-		
-		//recup des touches et stock dans des variables
-		while ($ligne = $resultat_tch->fetch_assoc()) 
-		{
-			//id de la manette
-			$id_touche_manette = $ligne['id_touche_manette'];
-			//deplacements
-			$tch_up = $ligne['tch_up'];
-			$tch_down = $ligne['tch_down'];
-			$tch_left = $ligne['tch_left'];
-			$tch_right = $ligne['tch_right'];
-			//actions
-			
-		}
-		//On detruit le resultat
-		$resultat_tch->close();
 		
 	//////////////////////////////////////////////////////////////////////////////////////
 	// Requète : update
@@ -50,20 +28,20 @@
 		//"up" veut dire que le joueur lâche et "down" que le joueur appuie
 		//on met à 0 lorsqu'il lâche et 1 lorsqu'il appuie
 			//touch up
-		$tch_down_up_bdd = "Update `kiut`.`tbl_touche` set `tch_up` = '1' where `id_touche_manette` = '$id_touche_manette';";
-		$tch_up_up_bdd = "Update `kiut`.`tbl_touche` set `tch_up` = '0' where `id_touche_manette` = '$id_touche_manette';";
+		$tch_down_up_bdd = "Update `kiut`.`tbl_touche` set `tch_up` = '1' where `id_touche_manette` = '$manette_id';";
+		$tch_up_up_bdd = "Update `kiut`.`tbl_touche` set `tch_up` = '0' where `id_touche_manette` = '$manette_id';";
 			//touch right
-		$tch_down_right_bdd = "Update `kiut`.`tbl_touche` set `tch_right` = '1' where `id_touche_manette` = '$id_touche_manette';";
-		$tch_up_right_bdd = "Update `kiut`.`tbl_touche` set `tch_right` = '0' where `id_touche_manette` = '$id_touche_manette';";
+		$tch_down_right_bdd = "Update `kiut`.`tbl_touche` set `tch_right` = '1' where `id_touche_manette` = '$manette_id';";
+		$tch_up_right_bdd = "Update `kiut`.`tbl_touche` set `tch_right` = '0' where `id_touche_manette` = '$manette_id';";
 			//touch down
-		$tch_down_down_bdd = "Update `kiut`.`tbl_touche` set `tch_down` = '1' where `id_touche_manette` = '$id_touche_manette';";
-		$tch_up_down_bdd = "Update `kiut`.`tbl_touche` set `tch_down` = '0' where `id_touche_manette` = '$id_touche_manette';";
+		$tch_down_down_bdd = "Update `kiut`.`tbl_touche` set `tch_down` = '1' where `id_touche_manette` = '$manette_id';";
+		$tch_up_down_bdd = "Update `kiut`.`tbl_touche` set `tch_down` = '0' where `id_touche_manette` = '$manette_id';";
 			//touch left
-		$tch_down_left_bdd = "Update `kiut`.`tbl_touche` set `tch_left` = '1' where `id_touche_manette` = '$id_touche_manette';";
-		$tch_up_left_bdd = "Update `kiut`.`tbl_touche` set `tch_left` = '0' where `id_touche_manette` = '$id_touche_manette';";
+		$tch_down_left_bdd = "Update `kiut`.`tbl_touche` set `tch_left` = '1' where `id_touche_manette` = '$manette_id';";
+		$tch_up_left_bdd = "Update `kiut`.`tbl_touche` set `tch_left` = '0' where `id_touche_manette` = '$manette_id';";
 		
 		//action par touche
-		if($touch = 'up')
+		if($touch == 'up')
 		{
 			if($action == 1)
 			{
@@ -89,6 +67,60 @@
 					//error
 				}
 			}
+		}else if ($touch == 'right')
+		{
+			if($action == 1)
+			{
+				$resultat_tch_right = $mysqli->query($tch_down_right_bdd);
+				if($resultat_tch_right)
+				{
+					$touchOK = 'right';
+					$actionOK = '1';
+				}
+			}else{
+				$resultat_tch_right = $mysqli->query($tch_up_right_bdd);
+				if($resultat_tch_right)
+				{
+					$touchOK = 'right';
+					$actionOK = '0';
+				}
+			}
+		}else if ($touch == 'left')
+		{
+			if($action == 1)
+			{
+				$resultat_tch_left = $mysqli->query($tch_down_left_bdd);
+				if($resultat_tch_left)
+				{
+					$touchOK = 'left';
+					$actionOK = '1';
+				}
+			}else{
+				$resultat_tch_left = $mysqli->query($tch_up_left_bdd);
+				if($resultat_tch_left)
+				{
+					$touchOK = 'left';
+					$actionOK = '0';
+				}
+			}
+		}else if ($touch == 'down')
+		{
+			if($action == 1)
+			{
+				$resultat_tch_down = $mysqli->query($tch_down_down_bdd);
+				if($resultat_tch_down)
+				{
+					$touchOK = 'down';
+					$actionOK = '1';
+				}
+			}else{
+				$resultat_tch_down = $mysqli->query($tch_up_down_bdd);
+				if($resultat_tch_down)
+				{
+					$touchOK = 'down';
+					$actionOK = '0';
+				}
+			}
 		}
 	//////////////////////////////////////////////////////////////////////////////////////
 	// Fermeture BD
@@ -102,7 +134,7 @@
 
 		// AJAX
 		$objetJSON = array();
-		$objetJSON[] = array("touchOK" => $touchOK, "actionOK" => $actionOK);
+		$objetJSON[] = array("touche" => $touch,"touchOK" => $touchOK, "actionOK" => $actionOK);
 
 		// Serialize
 		$donneesServeur = json_encode($objetJSON);
